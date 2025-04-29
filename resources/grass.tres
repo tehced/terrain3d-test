@@ -1,26 +1,23 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cxj2p7fcq6jkc"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cxj2p7fcq6jkc"]
 
 [ext_resource type="Shader" uid="uid://b3ahpxc1635i" path="res://resources/grass.gdshader" id="1_k0t1y"]
 [ext_resource type="Texture2D" uid="uid://ci1r6g0770eqa" path="res://src/assets/textures/F1_Foliage_Map1.png" id="2_tbc2x"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_1p11q"]
-fractal_type = 0
-
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1p11q"]
 seamless = true
-noise = SubResource("FastNoiseLite_1p11q")
+seamless_blend_skirt = 0.433
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_k0t1y")
-shader_parameter/albedo = Color(0.45098, 0.803922, 0.196078, 0.984314)
+shader_parameter/albedo = Color(0, 1, 0.0431373, 1)
 shader_parameter/texture_albedo = ExtResource("2_tbc2x")
 shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
-shader_parameter/alpha_scissor_threshold = 0.0
-shader_parameter/point_size = 0.0
-shader_parameter/roughness = 0.0
+shader_parameter/alpha_scissor_threshold = 0.555
+shader_parameter/point_size = 91.7
+shader_parameter/roughness = 0.318
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/specular = 0.0
-shader_parameter/metallic = 0.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.28
 shader_parameter/wind_noise_texture = SubResource("NoiseTexture2D_1p11q")
 shader_parameter/texture_uv_scale = 1.0

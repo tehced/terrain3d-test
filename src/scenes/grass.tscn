@@ -1,26 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsxyh43yyli55"]
+[gd_scene load_steps=5 format=4 uid="uid://dsxyh43yyli55"]
 
 [ext_resource type="PackedScene" uid="uid://blrq8wn8i57op" path="res://src/assets/models/F1_MidGrass.fbx" id="1_jqdqi"]
-[ext_resource type="Texture2D" uid="uid://ci1r6g0770eqa" path="res://src/assets/textures/F1_Foliage_Map1.png" id="2_2mgd0"]
-[ext_resource type="Shader" uid="uid://fmlh0cthdahu" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="2_lnbjv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldtxg"]
-render_priority = 0
-shader = ExtResource("2_lnbjv")
-shader_parameter/alpha_scissor_threshold = 0.0
-shader_parameter/transmission = Color(0, 0, 0, 1)
-shader_parameter/secondary_color = Color(0, 0, 0, 1)
-shader_parameter/secondary_attenuation = 0.2
-shader_parameter/grass_height = 1.0
-shader_parameter/wind_direction = Vector2(1, -0.5)
-shader_parameter/wind_speed = 1.0
-shader_parameter/wind_strength = 2.0
-shader_parameter/noise_scale = 20.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnbjv"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_2mgd0")
+[ext_resource type="Material" uid="uid://cxj2p7fcq6jkc" path="res://resources/grass.tres" id="2_jqdqi"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ldtxg"]
 _surfaces = [{
@@ -43,7 +24,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 108,
 "index_data": PackedByteArray("AAABAAIAAQADAAIABAAFAAYABQAHAAYACAAJAAoACQALAAoADAANAA4ADQAPAA4AEAARABIAEQATABIAFAAVABYAFQAXABYAGAAZABoAGQAbABoAHAAdAB4AHQAfAB4AIAAhACIAIQAjACIAJAAlACYAJQAnACYAKAApACoAKQArACoALAAtAC4ALQAvAC4AMAAxADIAMQAzADIANAA1ADYANQA3ADYAOAA5ADoAOQA7ADoAPAA9AD4APQA/AD4AQABBAEIAQQBDAEIARABFAEYARQBHAEYA"),
-"material": SubResource("StandardMaterial3D_lnbjv"),
+"material": ExtResource("2_jqdqi"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 72,
@@ -55,5 +36,4 @@ shadow_mesh = SubResource("ArrayMesh_ldtxg")
 [node name="F1_MidGrass" instance=ExtResource("1_jqdqi")]
 
 [node name="F1_MidGrass" parent="." index="0"]
-material_overlay = SubResource("ShaderMaterial_ldtxg")
 mesh = SubResource("ArrayMesh_6nydq")

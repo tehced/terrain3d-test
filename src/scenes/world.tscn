@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://3dxss8p6cuvc"]
+[gd_scene load_steps=30 format=3 uid="uid://3dxss8p6cuvc"]
 
 [ext_resource type="Texture2D" uid="uid://dheq8h82gbx3b" path="res://src/assets/textures/sky_36_2k.png" id="1_pjcp1"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_w561s"]
@@ -121,14 +121,6 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 48.0
 
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_251w0"]
-name = "base_rock_1"
-id = 4
-scene_file = ExtResource("6_qxddc")
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_ccq23"]
 name = "ground_stones_02_height"
 albedo_texture = ExtResource("2_c0n45")
@@ -147,10 +139,14 @@ albedo_texture = ExtResource("11_tyaea")
 normal_texture = ExtResource("12_qrxgn")
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_c0n45"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_pjcp1"), SubResource("Terrain3DMeshAsset_qxjwa"), SubResource("Terrain3DMeshAsset_ccq23"), SubResource("Terrain3DMeshAsset_0ls5i"), SubResource("Terrain3DMeshAsset_251w0")])
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_pjcp1"), SubResource("Terrain3DMeshAsset_qxjwa"), SubResource("Terrain3DMeshAsset_ccq23"), SubResource("Terrain3DMeshAsset_0ls5i")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_ccq23"), SubResource("Terrain3DTextureAsset_0ls5i"), SubResource("Terrain3DTextureAsset_pa1cl")])
 
 [node name="World" type="Node"]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0ls5i")
@@ -169,3 +165,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, -0.0273808, 0.999625, 1.19685e-09, 
 
 [node name="F1_Tree1" parent="Trees" instance=ExtResource("14_tyaea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8889, 24.1836, 100.668)
+
+[node name="F1_Tree2" parent="Trees" instance=ExtResource("14_tyaea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -0.739249, 46.3943, 24.1836, 100.668)
+
+[node name="Rocks" type="Node3D" parent="."]
+
+[node name="AP2_Rock1_LOD0" parent="Rocks" instance=ExtResource("6_qxddc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 53.33, 24.1946, 103.872)

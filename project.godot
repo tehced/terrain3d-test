@@ -74,6 +74,10 @@ crouch={
 ]
 }
 
+[rendering]
+
+scaling_3d/scale=0.5
+
 [shader_globals]
 
 wind_direction={
@@ -86,7 +90,7 @@ wind_intensity={
 }
 wind_speed={
 "type": "float",
-"value": 0.2
+"value": 0.35
 }
 bush_color={
 "type": "color",
