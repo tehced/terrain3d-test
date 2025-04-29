@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://ovymg0fgp3ew"]
+
+[ext_resource type="Shader" uid="uid://dbtrlviqli0wd" path="res://resources/leaves.gdshader" id="1_8md6l"]
+[ext_resource type="Texture2D" uid="uid://dl01eq3kgckk" path="res://src/assets/textures/F1_Leaves_Map1.png" id="1_sehxb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fvye3"]
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fvye3"]
+seamless = true
+seamless_blend_skirt = 0.383
+noise = SubResource("FastNoiseLite_fvye3")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8md6l")
+shader_parameter/albedo = Color(0.45098, 0.803922, 0.196078, 1)
+shader_parameter/texture_albedo = ExtResource("1_sehxb")
+shader_parameter/proximity_fade_distance = 2.5
+shader_parameter/alpha_scissor_threshold = 0.403
+shader_parameter/albedo_texture_size = Vector2i(512, 512)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/wind_noise_texture = SubResource("NoiseTexture2D_fvye3")
+shader_parameter/texture_uv_scale = 1.0
